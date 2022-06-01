@@ -104,36 +104,92 @@
 // s1.push(2)
 // console.log(s1)
 
-// ********************************************************************************************
-    class Stack{
-        constructor(){
-            this.length=0;
-            this.stack=[]
-        }
-        // method push
-        push(ele){
-            this.stack[this.length]=ele
-            this.length++;
-        }
-        // method pop 
-        pop(){
-            this.stack.pop()
-            this.length--;
-        }
-        peak(){
-            return this.stack[this.length-1];
-        }
-    }
-let s1=new Stack();
-s1.push(1)
-s1.push(2)
-s1.push(10)
-// ************************
-console.log("push:",s1)
-s1.pop()
-console.log("pop :",s1)
+// // ********************************************************************************************
+//     class Stack{
+//         constructor(){
+//             this.length=0;
+//             this.stack=[]
+//         }
+//         // method push
+//         push(ele){
+//             this.stack[this.length]=ele
+//             this.length++;
+//         }
+//         // method pop 
+//         pop(){
+//             this.stack.pop()
+//             this.length--;
+//         }
+//         peak(){
+//             return this.stack[this.length-1];
+//         }
+//     }
+// let s1=new Stack();
+// s1.push(1)
+// s1.push(2)
+// s1.push(10)
+// // ************************
+// console.log("push:",s1)
+// s1.pop()
+// console.log("pop :",s1)
 
-// -********************
-s1.push(10)
-console.log("peak elements :",s1.peak())
+// // -********************
+// s1.push(10)
+// console.log("peak elements :",s1.peak())
+
+// ************************************************
+
+// Inheritance 
+// Object.create(),prototype Inheritance 
+
+// class Mobile{
+//     // blue print
+
+//     constructor(b,bt){
+//         this.brand=b;
+//         this.calling=true;
+//         this.battery=bt
+//     }
+// }
+// let m1=new Mobile("I-Phone","5000mph")
+// console.log(m1)
+
+
+
+// class SmartMobile{
+//     // blue print
+//     constructor(b,bt,c,s){
+//         this.brand=b;
+//         this.calling=true;
+//         this.battery=bt;
+//         this.camera=c;
+//         this.screansize=s;
+//     }
+// }
+// let m2=new SmartMobile("I-Phone 11 pro","5000 mph","108 Mega Pixal","6.99 in")
+// console.log(m2)
+
+// ***********-------------------*----*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+// inheritance uesed
+
+class Mobile{
+    // blue print
+    constructor(b,bt){
+        this.brand=b;
+        this.calling=true;
+        this.battery=bt
+    }
+}
+class SmartMobile extends Mobile{
+    // blue print
+    constructor(b,bt,c,s){
+        super(b,bt)
+        this.camera=c;
+        this.screansize=s;
+    }
+}
+let m2=new SmartMobile("I-Phone 11 pro","5000 mph","108 Mega Pixal","6.99 in")
+console.log(m2)
+
+
 </script>
