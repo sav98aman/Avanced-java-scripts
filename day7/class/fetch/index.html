@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <style>
+        #box1{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+        #box1>div{
+            border: 2px solid rgb(216, 195, 195);
+
+        }
+    </style>
+</head>
+<body>
+    <p>fetch</p>
+    <div id="box1"></div>
+</body>
+</html>
+<script>
+    // 1
+    // let x=fetch()// it will take time and destionation
+    // console.log(x)//rejected because not given any things
+
+    // 2
+    // const url="https://reqres.in/api/users";
+
+// fetch(url)
+//     .then(function(res){
+//         // console.log(res)//PROMISES
+//         return res.json(); // res.collect >> collecting data .json()
+//     })
+//     .then(function(res){
+//         console.log(res)
+//     })
+//     .catch(function(err){
+//         console.log(err)
+// })
+
+
+    // 3  shortcut
+
+    // async function 
+
+    const url="https://fakestoreapi.com/products";
+    async function getData(){
+        try{
+        let res=await fetch(url);
+        let users= await res.json();
+        console.log(users);
+        append(users)
+        }catch(err){
+            console.log(err)
+        }
+    }
+    getData()
+
+    //readable +stream >>> data in chunks data come part by partor or comes in packetby packet 
+    //collect the stream
+    function append(data){
+        data.forEach(function(element){
+            let maiandiv=document.createElement("div")
+            let img=document.createElement("img")
+            img.src=element.image;
+            img.style.width="100px"
+            img.style.height="100px"
+
+            
+            let t1=document.createElement('p')
+            t1.innerText=element.title;
+
+            let t2=document.createElement('p')
+            t2.innerText=element.price;
+
+            maiandiv.append(img,t1,t2)
+            document.querySelector("#box1").append(maiandiv)
+        });
+        console.log("done")
+    }
+
+
+</script>

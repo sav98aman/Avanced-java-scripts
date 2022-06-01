@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>automobile</title>
+</head>
+<body>
+    <div><h3>check res in console</h3></div>
+</body>
+</html>
+<script >
+// Object inheritance
+    let automobile = {
+        seater:"four seater",
+        fuel:"diesel",
+        type:"car",
+        gear:"Manual",
+        safety:"high"
+    }
+    let Honda =Object.create(automobile);//object.create()
+    Honda.name="Honda";
+    Honda.seat='4';
+    Honda.autopoilt=true
+    let Nexan=Object.create(automobile);
+    Nexan.name="Nexon";
+    Nexan.seat="6";
+    Nexan.autopoilt=false
+    let Bulerro=Object.create(automobile);
+    Bulerro.name="Bulero";
+    console.log(Honda)//honda
+    console.log(Nexan)
+    console.log(Bulerro)
+
+    // function inheritance
+    function auto(name){
+        this.name=name;
+        this.stephy="1 wheel";
+        this.model = "2022";
+        this.seater="4"
+    }
+    var Nexon=new auto("Tata Nexon");
+    var Safari =new auto("Tata Safari");
+    var Safari =new auto("Tata Avinya");
+console.log(Nexon)
+console.log(Safari)
+console.log(Safari)
+   
+
+</script>

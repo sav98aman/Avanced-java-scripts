@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hotstar</title>
+    <style>
+        input{
+            width: 200px;
+        }
+        #movies{
+            height: 200px;
+            width: 206px;
+            border: 2px solid red;
+            border-top: none;
+            overflow: scroll;
+        }
+        #list{
+            display: flex;
+            gap: 2px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- collecting input as response the  -->
+    <!--<input type="text" id="query" oninput="main()"> -->
+    
+    <input type="text" id="query" oninput="deboncingfunction(main(),1000)">
+    <!-- list of movies show in searchbox -->
+    <div id="movies"></div>
+</body>
+</html>
+<script>
+
+let movies_div=document.getElementById("movies")
+async function searchMovies(moviessearch){
+    try{
+    let  url=`https://www.omdbapi.com/?s=${moviessearch}&apikey=60ac6740`;
+    // console.log(url)
+    let res=await fetch(url)
+    let data=await res.json();
+    return data.Search; // is importanat
+
+    // console.log("data",data.Search)
+    }catch(error){
+        console.log("error",error)
+    }
+}
+function appendMovies(movies){
+    movies_div.innerHTML=null;
+    if(movies===undefined){
+        return false;
+    }
+    movies.forEach(element => {
+        let p=document.createElement("p")
+        p.innerText=`${element.Title}`;
+        let img=document.createElement("img")
+        img.style.width="50px"
+        img.style.height="50px"
+        img.src=element.Poster
+        movies_div.append(p,img)
+    });
+}
+async function main(){
+    let movies=document.querySelector("#query").value;
+
+    let response=searchMovies(movies)// results getingg beacuse searchMovies function return promises
+
+    // console.log(x); retutn by searching movies function 
+    let data=await response; //collecting data form await means 
+
+    // console.log("data",data);
+
+    appendMovies(data)
+
+}
+// deboncing:: means cleartime out 
+//
+//main('a') >>setTimeout(main,1000,'a') ->>id -> data
+//main('av') >>
+
+let id //global scope
+function deboncingfunction(func,delay){
+    if(id){
+        clearTimeout
+    }
+    setTimeout(function(){
+    func;
+    },delay)
+}
+</script>

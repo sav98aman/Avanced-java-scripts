@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slidshow</title>
+</head>
+<body>
+    <h1 id="counter">slide-show</h1>
+
+    <div  id="box_div">
+        <input type="url"id="url" placeholder="url img">
+        <button onclick="store_img()">store img</button>
+        <button onclick="getslidshow()">watch slide show</button>
+    </div>
+
+</body>
+</html>
+<script>
+
+// slid show
+// var arr=["1.img","2.img","3.img",'4.img']
+
+function store_img(){
+    // step 1 accepts user input
+    let image_url=document.getElementById("url").value;
+
+    // step2 pickup  either localstorage array created empty array
+    let images=JSON.parse(localStorage.getItem("images"))||[];
+
+    images.push(image_url)
+    // console.log(images)
+    
+    localStorage.setItem("images",JSON.stringify(images))
+
+    document.getElementById("url").value=null;
+}
+
+function getslidshow(){
+   if(JSON.parse(localStorage.getItem("images"))==null){
+    alert("Please uploaded some image first");
+   
+   }
+   else{
+    console.log("slide show is ready");
+    window.location.href="slidz.html"
+   }
+}
+
+
+
+
+
+
+</script>

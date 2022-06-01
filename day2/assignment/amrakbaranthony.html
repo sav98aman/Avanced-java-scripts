@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div><h1 class="skills1"></h1></div>
+</body>
+</html>
+<script>
+ var Amar={
+    name:"amar",
+    city:"Goa",
+    singer:function (){
+        console.log(this.name+" "+"is a Singer")
+    }
+}
+var Akbar={
+    name:"akbar",
+    city:"Mumbai",
+    chef:function (){
+        console.log(this.name+" "+"is a Chef")
+    }
+}
+var Anthony={
+    name:"anthony",
+    city:"Kashmir",
+    magician:function (){
+        console.log(this.name+" "+"is a Magician")
+    }
+}
+let x=Amar.singer.call(Amar);
+let y=Akbar.chef.call(Amar);
+ Anthony.magician.call(Amar)//calling which one person skills needs(calling perosn skill)
+
+</script>

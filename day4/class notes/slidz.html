@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide show</title>
+</head>
+<body>
+    <button onclick="back()">back</button>
+    <button onclick="start()">start</button>
+    <button onclick="pause()">pause</button>
+    <button onclick="resume()">resume</button>
+    <div id="containar"></div>
+</body>
+</html>
+
+<script>
+    let i=0;//gloabla variable
+    let id;
+    function back(){
+    window.location.href="slidshow.html"
+}
+
+function start(){
+    let images=JSON.parse(localStorage.getItem("images"));
+
+    let containar=document.getElementById("containar");
+    let image=images[i];
+        console.log(image)
+        //append image where is display the image
+        let img=document.createElement("img");
+        img.setAttribute("src",image)
+    i++;
+
+    // slide show start
+    // // var arr=['1.png','2.png','3.png']
+    // arr[0]
+    // arr[1]
+    // arr[3]
+
+    id= setInterval( function (){
+
+        if(i===images.length){
+            i=0;
+        }
+
+        containar.innerHTML=null;
+
+        let image=images[i];
+        console.log(image)
+        //append image where is display the image
+        let img=document.createElement("img");
+        img.setAttribute("src",image)
+        
+
+        containar.append(img)
+        console.log(i)
+        i++;
+
+    },3000)
+}
+
+    function pause(){
+        clearInterval(id)
+    }
+</script>

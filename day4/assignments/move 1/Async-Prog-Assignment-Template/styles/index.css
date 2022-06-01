@@ -1,0 +1,18 @@
+/* navbar */
+
+#navbar{
+    border: 2px solid rgb(50, 44, 44);
+    display: flex;
+    justify-content: space-around;
+}
+#navbar>div{
+    display:flex;
+    /* border: 2px solid red; */
+    width: 30%;
+    justify-content: space-around;
+}
+/* #navbar>div>div{
+    border: 2px solid;
+    width: 40%;
+} */
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this keyword</title>
+</head>
+<body>
+    <h1>this keyword used in java script</h1>
+</body>
+</html>
+<script>
+
+// 1
+console.log(this)// golbal objects give >> window objects
+// 2
+
+// function func(){
+//     console.log(this)// refer to parent of this function
+
+// }
+// func();
+// // 3
+// let obj={
+//     team:"csk",
+//     print:function(){
+//         console.log(this)
+//     }
+// };
+
+// this will always refer to an objects
+// this will refer to global  or window objects  or custom which you created
+// this always refers to its parent objects
+// obj.print();
+
+
+// 1.1 task created a normal function that will return an objects
+
+// function prod(n,p,b){
+//     let obj={};
+//     obj.name=n;
+//     obj.price=p;
+//     obj.brand=b;
+//     return obj;
+// }
+// console.log(prod("shoes",999.99,"ADDIDAS"))
+
+//1.2 constracter function 
+// construcater function follow the first letter capital
+
+// function Nikeproducts(n,p,b){
+//     this.name=n;
+//     this.price=p;
+//     this.brand=b;
+// }
+// let p1=new Nikeproducts("shoes",999.99,"ADDIDAS")
+// console.log(p1)
+
+// 1.3
+
+function Nikeproducts(n,p,b){
+    this.name=n;
+    this.price=p;
+    this.brand=b;
+    this.print=function(){
+        console.log(this)
+    };
+};
+let p11=new Nikeproducts("shoes",999.99,"ADDIDAS")
+let p12=new Nikeproducts("sneaker",500,"nike")
+console.log(p11)
+p11.print();
+p12.print()
+// what does new do?
+// it return the objects and make this to the newly created  objects
+
+// 1.4
+
+
+</script>

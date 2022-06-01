@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promises</title>
+    <style>
+        img{
+            border: 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>promise</h1>
+    <img  id='loading_image'src="https://media1.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e477xypqwrjwpx9gjfljaa4joubhlikcbpp7fvm1pyr&rid=giphy.gif&ct=g" alt="loding">
+    <img src="https://media1.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=ecf05e47xkqsqr6eju2x50rt3as60v2l825cey0jufeti7e8&rid=200w.webp&ct=g" alt="img">
+</body>
+</html>
+<script>
+    // Promise()  is function
+    // new promise is constructer function
+
+    // let p=new Promise(function(reject,resolve){});
+    // console.log('p',p)
+
+// /*--------------
+    // we1  cllass part 
+    // /when contantents loads after some time ,we remove the image
+    //we get the new imgae
+    let imgae=document.getElementById("loading_image");
+    function checkconntent(value){
+        //CHECKING contents logic;
+        // return value;
+        // return true/// resolve
+       return false// reject
+    }
+    let content_promise=new Promise(function(resolve,reject){
+        //if content is loaded, resolve
+        //if conntent is not loaded ,rejected
+        let content=checkconntent();
+        
+        setTimeout(function(){
+            if(content){
+            //promise resolved
+            resolve("content is  Load");
+            }else{
+            //promise is rejected
+            reject("content failed to load");
+            }
+        },5000)
+    })
+    console.log('content_promise',content_promise)
+    // 2nd how use .then and .catch 
+    // .then grab the resoloved value                   
+    content_promise.then(function(value){
+        console.log("value",value);
+        imgae.src='https://media2.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47dzhywtbhjbzsexmeonvsam8lindx86u08r6k5kt8&rid=200w.webp&ct=g'
+    })
+
+    // .catch grab rejected value  changed by if return  the rejected 
+    content_promise.catch(function(err){
+        console.log("error:",err)
+        imgae.src='https://media0.giphy.com/media/11kEuHSQAXXiGQ/200w.webp?cid=ecf05e47pzq0z492agkbeiizy1kn5af562rug9z5hgjpara3&rid=200w.webp&ct=g'
+    });
+
+
+
+</script>

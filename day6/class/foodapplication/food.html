@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>food</title>
+</head>
+<body>
+    <input type="text"id="order">
+    <button onclick="ordercheck()">order</button>
+    <p>order status:</p>
+</body>
+</html>
+<script>
+    let order=JSON.parse(localStorage.getItem("orders"))||[];
+    function ordercheck(){
+       let my_order=document.getElementById("order").value;
+       order.push(my_order)
+       localStorage.setItem("orders",JSON.stringify(order));
+    }
+
+    
+
+    // function status(){
+    //     return true;//or false checking condition for
+    // }
+    // let my_promise=new Promise(function(resolve,reject){
+    // let s=status();//checking condition
+    // let time=Math.random()*10000;
+    // if(s==true){
+    // setTimeout(function(){
+    //     resolve(order)
+    // },4000)
+    // }
+    // else{
+    //     reject("sorry we cant't  delevire this iteam")
+    // }
+    // })
+    // my_promise.then(function(res){
+    //     console.log(`your ${res} is ready`)
+    // })
+    // my_promise.catch(function(res){
+    //     console.log(`your ${res} is not ready`)
+    // })
+    
+
+</script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <style>
+        #product{
+            display:grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+
+        }
+        #addmore{
+            /* border: 2px solid red; */
+            display: flex;
+            justify-content: center;
+
+        }
+        #addmore>h2{
+            border: 2px solid aliceblue;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            margin:10px auto;
+            background-color: antiquewhite;
+            
+        }
+        #addmore>h2:hover{
+            /* width: fit-content; */
+            border: 2px solid aliceblue;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="addmore"><h2><a href="admin.html">Add more products</a></h2></div>
+    <div id="product"></div>
+</body>
+</html>
+<script>
+    let Products=JSON.parse(localStorage.getItem("Products"))||[];
+
+    Products.forEach(function(ele,index){
+
+        var prod_div=document.createElement("div");
+        prod_div.style.border="2px solid";
+        prod_div.style.marginLeft='10px';
+
+        var img=document.createElement("img");
+        img.style.width="100px";
+        var prodname=document.createElement("p")
+        var pr=document.createElement('p');
+        var so=document.createElement('p');
+
+        var button_box=document.createElement("div");
+        button_box.style.display='flex';
+        button_box.style.justifyContent="space-around";
+
+        var remove=document.createElement("button");
+        var sold=document.createElement("button");
+        sold.style.backgroundColor="green"
+        remove.innerText="Remove";
+        remove.style.cursor="pointer";
+        sold.style.cursor="pointer";
+        sold.innerText="sold";
+
+        so.innerText=ele.sold;
+        // so.setAttribute("id","sold");
+
+        sold.addEventListener("click",function(){
+            let x=soldout(ele,index)
+            if(x==true){
+                so.innerText=x;
+                Products.sold=x;
+                so.style.backgroundColor="red"
+                so.style.color='black'
+                so.style.width="fitcontent"
+                
+            }
+        })
+
+
+        remove.addEventListener("click",function(){
+            delfun(ele,index);
+            })
+        button_box.append(sold,remove);
+
+        img.setAttribute("src",ele.imgurl);
+        prodname.innerText=ele.productsname;
+        pr.innerText=ele.price;
+        so.style.backgroundColor='green';
+        prod_div.append(img,prodname,pr,so,button_box);
+        // console.log(prod_div);
+        document.querySelector("#product").append(prod_div);
+
+    })
+
+    function delfun(ele,index){
+        Products.splice(index,1);
+        localStorage.setItem("Products",JSON.stringify(Products));
+        // console.log(Products);
+        window.location.reload();
+        // console.log("remove")
+    }
+    function soldout(ele,index){
+        
+        if(ele.sold!==true){
+            return true;
+
+        }
+    }
+
+    // localStorage.clear()
+</script>

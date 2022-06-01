@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #all_products{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+
+        /* border: 2px solid rgb(208, 191, 191); */
+        width: 90%;
+        margin: 30px auto;
+      }
+      #all_products>div{
+        border: 2px solid rgb(168, 127, 127);
+        width: auto;
+        margin: 10px;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+      }
+  #navbar{
+    margin: 30px;
+  }
+  #navbar>div{
+      /* border: 2px solid red; */
+      width: 60%;
+      margin: auto;
+    }
+    #add_more_product{
+      margin-left: 43%;
+      margin-right: 40%;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: aquamarine;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    #add_more_product:hover{
+      background-color: azure;
+      cursor: pointer;
+      color: blue;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    #remove_product{
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: aquamarine;
+      
+    }
+    #remove_product:hover{
+
+      background-color: rgb(212, 37, 37);
+      font-weight: bold;
+
+    }
+    </style>
+  </head>
+
+  <style></style>
+
+  <body>
+    <div id="navbar">
+      <!--Create Add More Product button here, give id as "add_more_product". avoid making spelling mistakes in HTML id's-->
+      <button id="add_more_product">Add More Product</button>
+
+    </div>
+    <div id="all_products">
+      <!--append all products data here in grid format-->
+      <!-- The Remove Product button will have id as "remove_product" -->
+    </div>
+  </body>
+</html>
+
+<script src="./scripts/inventory.js"></script>

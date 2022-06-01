@@ -1,0 +1,38 @@
+*{
+    margin: 10px;
+}
+#form{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(1);
+    gap: 10px;
+    
+    width:fit-content;
+    margin: auto;
+    border: 2px solid rgb(196, 179, 179);
+
+    box-shadow: rgba(1, 1, 1, 0.16) 0px 1px 4px;
+    border-radius:10px;
+}
+#form>div{
+    margin: auto;
+}
+input{
+    width: auto;
+    height: 30px;
+}
+#submit{
+    background-color: aqua;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#submit:hover{
+    cursor: pointer;
+
+}
+
