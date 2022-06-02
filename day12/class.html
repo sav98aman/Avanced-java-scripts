@@ -172,6 +172,30 @@
 // ***********-------------------*----*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 // inheritance uesed
 
+// class Mobile{
+//     // blue print
+//     constructor(b,bt){
+//         this.brand=b;
+//         this.calling=true;
+//         this.battery=bt
+//     }
+// }
+// class SmartMobile extends Mobile{
+//     // blue print
+//     constructor(b,bt,c,s){
+//         super(b,bt)
+//         this.camera=c;
+//         this.screansize=s;
+//     }
+// }
+// let m2=new SmartMobile("I-Phone 11 pro","5000 mph","108 Mega Pixal","6.99 in")
+// console.log(m2)
+
+// *-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+
+
+
 class Mobile{
     // blue print
     constructor(b,bt){
@@ -188,7 +212,16 @@ class SmartMobile extends Mobile{
         this.screansize=s;
     }
 }
-let m2=new SmartMobile("I-Phone 11 pro","5000 mph","108 Mega Pixal","6.99 in")
+class SuperSmartMobile extends SmartMobile{
+    // blue print
+    constructor(b,bt,c,s){
+        super(b,bt,c,s)
+        this.dron=true;
+        this.company=["samsanang ","nokia"]
+        
+    }
+}
+let m2=new SuperSmartMobile("I-Phone 11 pro","5000 mph","108 Mega Pixal","6.99 in")
 console.log(m2)
 
 

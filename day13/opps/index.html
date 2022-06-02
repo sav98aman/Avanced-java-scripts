@@ -8,11 +8,138 @@
 </head>
 <body>
     <h1>opps conncepts</h1>
-    <p>Lorem ipsulorem dolor, sit amet consectetur adipisicing elit. Commodi sunt praesentium cupiditate error. Quidem impedit totam harum ipsam dolor deserunt voluptate nemo aliquam. Consequuntur eum voluptatum vero harum dignissimos modi.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed quis ad, explicabo vel sunt cupiditate ducimus voluptas deleniti alias magni numquam modi necessitatibus ipsa sequi molestias, delectus facere eius <non class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste debitis eius recusandae odio animi excepturi, quod assumenda praesentium ipsa voluptas, rem placeat dignissimos facere vero itaque amet harum ipsam <veniam class="loremre">lorerm
-        lorer
-
-    </veniam></non>
-    </p>
 </body>
 </html>
+<script>
+// oops    ->> we treate objects as first citixens
+
+// 3 way of creating objects
+    //  1st way  -- object literal
+    //  2nd way --- Object.create()
+    // 3 constrcuter function 
+    // 4 classes improved version of constructer function 
+
+    // creating a login/signup system
+    
+    // user
+    // Admin
+    // Author
+
+    // /functionalites
+    // 1. user can signup {Checkusername,Checkpassword}
+    // 2. user can Login
+
+    class User{
+        #password;//priveted
+        constructor(name){
+            this.name=name;
+        }
+
+        #validatedUserName(UserName){
+            //checking  validating uUserName through if else
+            //by defaults , we simulating all username arr corrects
+            return true;
+        }
+
+        #validatedUserPassword(password){
+            //checking  validating uUserName through if else
+            //by defaults , we simulating all username arr corrects
+            return true;
+        }
+
+        // 1 sigup part 
+
+        signUp(UserName,password){
+            let isValidated=false;//in begining
+
+            // when use input valid username and password
+
+            isValidated=this.#validatedUserName(UserName) && this.#validatedUserPassword(password)
+
+            if(isValidated){
+                this.UserName==UserName;///creating UeserName=
+                this.#password=password;// for privited used #
+                console.log("signup succesfully")
+            }else{
+                console.log("Singup failure")
+            }
+        }
+
+        // 2 login part 
+
+        login(username,password){
+            if(username===this.UserName && password===this.#password){
+                console.log("succesfull login")
+            }else{
+                console.log("Authenticato]ion failed")
+            }
+        }
+
+        // changePassword(newPassword){
+        //     this.#password=newPassword;
+        // }
+
+
+        set password(NewPassword){
+            this.#password=NewPassword;
+        }
+
+        get Name_name(){
+            return this.name;
+        }
+
+
+    }
+
+    // 2 PART ENCAPUSULATION ->> HIDING THE internal data 
+    // u1.password
+
+    // 3. part autor
+
+    class Author extends User{
+        constructor(name){
+            super(name);
+        }
+    }
+
+ // let A1=new Author("vivikanand")
+    // console.log(A1)
+
+    // let u1 =new User('pablo')
+    // console.log(u1)
+
+    // u1.signUp("real_pablo_7","pablo123")
+
+    // u1.login("real_pablo_7","pablo123")
+
+    // let a1=new Author("vivekanananda")
+
+    // a1.signUp("vivekanananda","vivekananda123")
+
+    // console.log("a:",a1)
+
+
+    class Admin extends User{
+        constructor(name){
+            super(name)
+        }
+    }
+
+    let admin1=new Admin("babu bhaiyaa")
+    console.log("admin:",admin1)
+
+    admin1.signUp('paispaisapaisa ',"khopdi_todi")
+    admin1.login("paispaisapaisa","khopdi_todi")
+
+    // admin1.changePassword("ja ja change kar de pass")//calling change password
+
+    admin1.password='are are ja re ja change kar de'
+
+    console.log(admin1.Name_name)
+
+    // part 5
+    //change password *-*-*-*-*-*-*-*-
+
+    
+
+</script>
