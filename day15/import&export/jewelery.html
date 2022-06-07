@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jewelery</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+</head>
+<body>
+    <!-- navbar  -->
+    <div id="navbar"></div>
+    <!-- data part -->
+    <h1>jewelary</h1>
+
+    <div id="main"></div>
+</body>
+</html>
+<script type="module">
+import navbar from "./componets/navbar.js";
+document.getElementById("navbar").innerHTML=navbar()
+
+// import  api
+
+import {getdata,display} from "./scripts/fetching.js";
+let url="https://fakestoreapi.com/products/category/jewelery"
+
+let data=await getdata(url)//fetcthing data help // whithout await data showing  promises
+console.log(data) //showing data
+
+display(data,main)//data is api data and electronicsitem -- apppend part of this div id
+
+</script>

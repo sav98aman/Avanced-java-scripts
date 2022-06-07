@@ -35,29 +35,29 @@
             this.name=name;
         }
 
-        #validatedUserName(UserName){
+        #validatedUserName(userName){
             //checking  validating uUserName through if else
             //by defaults , we simulating all username arr corrects
             return true;
         }
 
         #validatedUserPassword(password){
-            //checking  validating uUserName through if else
+            //checking  validating userName through if else
             //by defaults , we simulating all username arr corrects
             return true;
         }
 
         // 1 sigup part 
 
-        signUp(UserName,password){
+        signUp(userName,password){
             let isValidated=false;//in begining
 
             // when use input valid username and password
 
-            isValidated=this.#validatedUserName(UserName) && this.#validatedUserPassword(password)
+            isValidated=this.#validatedUserName(userName) && this.#validatedUserPassword(password)
 
             if(isValidated){
-                this.UserName==UserName;///creating UeserName=
+                this.userName==userName;///creating UeserName=
                 this.#password=password;// for privited used #
                 console.log("signup succesfully")
             }else{
@@ -71,8 +71,9 @@
             if(username===this.UserName && password===this.#password){
                 console.log("succesfull login")
             }else{
-                console.log("Authenticato]ion failed")
+                console.log("Authentication failed")
             }
+
         }
 
         // changePassword(newPassword){
@@ -102,7 +103,13 @@
         }
     }
 
- // let A1=new Author("vivikanand")
+    class Admin extends User{
+        constructor(name){
+            super(name)
+        }
+    }
+
+    //  let A1=new Author("vivikanand")
     // console.log(A1)
 
     // let u1 =new User('pablo')
@@ -117,29 +124,20 @@
     // a1.signUp("vivekanananda","vivekananda123")
 
     // console.log("a:",a1)
-
-
-    class Admin extends User{
-        constructor(name){
-            super(name)
-        }
-    }
-
+    
     let admin1=new Admin("babu bhaiyaa")
     console.log("admin:",admin1)
 
-    admin1.signUp('paispaisapaisa ',"khopdi_todi")
+    admin1.signUp("paispaisapaisa","khopdi_todi")
     admin1.login("paispaisapaisa","khopdi_todi")
 
     // admin1.changePassword("ja ja change kar de pass")//calling change password
 
-    admin1.password='are are ja re ja change kar de'
-
-    console.log(admin1.Name_name)
+    // admin1.password='are are ja re ja change kar de'
 
     // part 5
     //change password *-*-*-*-*-*-*-*-
 
-    
+    console.log(admin1.Name_name)
 
 </script>
